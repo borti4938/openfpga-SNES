@@ -84,6 +84,7 @@ module MAIN_SNES (
     input wire [3:0] rom_size,
     input wire [3:0] ram_size,
     input wire PAL,
+    input wire forcedPAL,
 
     // Saves
     input wire save_download,
@@ -334,7 +335,8 @@ module MAIN_SNES (
       .ROM_TYPE(rom_type),
       .ROM_MASK(rom_mask),
       .RAM_MASK(ram_mask),
-      .PAL(PAL),
+      .PAL(forcedPAL),
+      .RomRegion(PAL),
       .BLEND(blend_enabled),
 
       .ROM_ADDR(ROM_ADDR),

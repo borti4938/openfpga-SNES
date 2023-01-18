@@ -32,6 +32,7 @@ entity SPPU is
 		EXTLATCH		: in std_logic;
 		
 		PAL			: in std_logic;
+		RomRegion	: in std_logic;
 		BLEND			: in std_logic;
 
 		HIGH_RES		: out std_logic;
@@ -764,7 +765,7 @@ begin
 					D_OUT <= MDR2(7 downto 1) & OPVCT(8);
 				end if;
 			when x"3F" =>						--STAT78
-				D_OUT <= FIELD & ((not EXTLATCH) or F_LATCH) & MDR2(5) & PAL & x"3";
+				D_OUT <= FIELD & ((not EXTLATCH) or F_LATCH) & MDR2(5) & RomRegion & x"3";
 			when others =>
 				D_OUT <= DI;
 		end case;

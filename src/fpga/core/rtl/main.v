@@ -61,6 +61,7 @@ module main #(
 
     input        BLEND,
     input        PAL,
+    input        RomRegion,
     output       HIGH_RES,
     output       FIELD,
     output       INTERLACE,
@@ -201,6 +202,7 @@ module main #(
 
       .blend(BLEND),
       .pal(PAL),
+      .romregion(RomRegion),
       .high_res(HIGH_RES),
       .field_out(FIELD),
       .interlace(INTERLACE),

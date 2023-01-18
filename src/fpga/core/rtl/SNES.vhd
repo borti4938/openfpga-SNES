@@ -13,7 +13,8 @@ entity SNES is
 		
 		RST_N			: in std_logic;
 		ENABLE		: in std_logic;
-		PAL			: in std_logic;
+		PAL				: in std_logic;
+		RomRegion	: in std_logic;
 		BLEND			: in std_logic;
 		
 		CA       	: out std_logic_vector(23 downto 0);
@@ -318,6 +319,7 @@ begin
 		
 		BLEND			=> BLEND,
 		PAL			=> PAL,
+		RomRegion		=> RomRegion,
 		HIGH_RES		=> HIGH_RES,
 		DOTCLK		=> DOTCLK,
 		FIELD_OUT	=> FIELD_OUT,

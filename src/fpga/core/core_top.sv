@@ -379,6 +379,9 @@ module core_top (
         32'h204: begin
           blend_enabled <= bridge_wr_data[0];
         end
+        32'h208: begin
+          core_region <= bridge_wr_data[1:0];
+        end
       endcase
     end
   end
@@ -519,6 +522,7 @@ module core_top (
   reg [3:0] rom_size;
   reg [3:0] ram_size;
   reg PAL;
+  wire forcedPAL = core_region_s[0] ? core_region_s[1] : PAL;
 
   wire save_download_s;
 
@@ -689,6 +693,7 @@ module core_top (
 
   reg use_square_pixels = 0;
   reg blend_enabled = 0;
+  reg [1:0] core_region = 0;
 
   // Settings sync
   wire reset_button_s;
@@ -705,9 +710,10 @@ module core_top (
 
   wire use_square_pixels_s;
   wire blend_enabled_s;
+  wire [1:0] core_region_s;
 
   synch_3 #(
-      .WIDTH(25)
+      .WIDTH(27)
   ) settings_s (
       {
         reset_button,
@@ -720,7 +726,8 @@ module core_top (
         joystick_deadzone,
         mouse_enabled,
         use_square_pixels,
-        blend_enabled
+        blend_enabled,
+        core_region
       },
       {
         reset_button_s,
@@ -733,7 +740,8 @@ module core_top (
         joystick_deadzone_s,
         mouse_enabled_s,
         use_square_pixels_s,
-        blend_enabled_s
+        blend_enabled_s,
+        core_region_s
       },
       clk_sys_21_48
   );
@@ -846,6 +854,7 @@ module core_top (
       .rom_size(rom_size),
       .ram_size(ram_size),
       .PAL(PAL),
+      .forcedPAL(forcedPAL),
 
       // Save input/output
       .save_download(save_download_s),

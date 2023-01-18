@@ -126,6 +126,30 @@
         "writeonly": true,
         "defaultval": 1,
         "value": 1
+      },
+      {
+        "name": "Core Region",
+        "id": 43,
+        "type": "list",
+        "enabled": true,
+        "address": "0x208",
+        "persist": true,
+        "writeonly": true,
+        "defaultval": 0,
+        "options": [
+          {
+            "name": "Auto",
+            "value": 0
+          },
+          {
+            "name": "NTSC",
+            "value": 1
+          },
+          {
+            "name": "PAL",
+            "value": 3
+          }
+        ]
       }
     ],
     "messages": []
