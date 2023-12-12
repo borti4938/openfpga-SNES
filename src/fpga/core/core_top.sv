@@ -642,7 +642,7 @@ module core_top (
   wire [15:0] cont1_joy_y_calibrated = cont1_joy_total > joystick_deadzone ? cont1_joy_y : 8'd128;
 
   synch_3 #(
-      .WIDTH(32)
+      .WIDTH(16)
   ) cont1_s (
       cont1_key,
       cont1_key_s,
@@ -650,7 +650,7 @@ module core_top (
   );
 
   synch_3 #(
-      .WIDTH(32)
+      .WIDTH(16)
   ) cont2_s (
       cont2_key,
       cont2_key_s,
@@ -658,7 +658,7 @@ module core_top (
   );
 
   synch_3 #(
-      .WIDTH(32)
+      .WIDTH(16)
   ) cont3_s (
       cont3_key,
       cont3_key_s,
@@ -666,7 +666,7 @@ module core_top (
   );
 
   synch_3 #(
-      .WIDTH(32)
+      .WIDTH(16)
   ) cont4_s (
       cont4_key,
       cont4_key_s,
