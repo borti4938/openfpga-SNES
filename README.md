@@ -57,9 +57,9 @@ Savestates/Memories/Sleep are not supported by any FPGA SNES core. Not this one,
 
 ### Video
 
+* `Core Region` - `Auto` selects region of ROM loaded, overrides the region if set to `NTSC` or `PAL`
 * `Square Pixels` - The internal resolution of the SNES is a 8:7 pixel aspect ratio (wide pixels), which roughly corresponds to what users would see on 4:3 display aspect ratio CRTs. Some games are designed to be displayed at 8:7 PAR (the core's default), and others at 1:1 PAR (square pixels). The `Square Pixels` option is provided to switch to a 1:1 pixel aspect ratio
 * `Pseudo Transparency` - Enable blending of adjacent pixels, used in some games to simulate transparency
-* `Core Region` - `Auto` selects region of ROM loaded, overrides the region if set to `NTSC` or `PAL`
 
 ### Reset
 
