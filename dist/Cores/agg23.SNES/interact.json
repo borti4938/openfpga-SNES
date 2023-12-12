@@ -11,6 +11,30 @@
         "value": 1
       },
       {
+        "name": "In-Game Reset",
+        "id": 44,
+        "type": "list",
+        "enabled": true,
+        "address": "0x20C",
+        "persist": true,
+        "writeonly": true,
+        "defaultval": 0,
+        "options": [
+          {
+            "name": "Off",
+            "value": 0
+          },
+          {
+            "name": "Sel+Dw",
+            "value": "0x14002"
+          },
+          {
+            "name": "L+R+St+Sel",
+            "value": "0x1C300"
+          }
+        ]
+      },
+      {
         "name": "CPU Turbo",
         "id": 15,
         "type": "check",

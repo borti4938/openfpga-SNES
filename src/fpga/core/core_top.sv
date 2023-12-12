@@ -382,6 +382,10 @@ module core_top (
         32'h208: begin
           core_region <= bridge_wr_data[1:0];
         end
+        32'h20C: begin
+          en_igr <= bridge_wr_data[16];
+          igr_btn_cmb <= bridge_wr_data[15:0];
+        end
       endcase
     end
   end
@@ -694,6 +698,8 @@ module core_top (
   reg use_square_pixels = 0;
   reg blend_enabled = 0;
   reg [1:0] core_region = 0;
+  reg en_igr = 0;
+  reg [15:0] igr_btn_cmb;
 
   // Settings sync
   wire reset_button_s;
@@ -711,9 +717,11 @@ module core_top (
   wire use_square_pixels_s;
   wire blend_enabled_s;
   wire [1:0] core_region_s;
+  wire en_igr_s;
+  wire [15:0] igr_btn_cmb_s;
 
   synch_3 #(
-      .WIDTH(27)
+      .WIDTH(44)
   ) settings_s (
       {
         reset_button,
@@ -727,7 +735,9 @@ module core_top (
         mouse_enabled,
         use_square_pixels,
         blend_enabled,
-        core_region
+        core_region,
+        en_igr,
+        igr_btn_cmb
       },
       {
         reset_button_s,
@@ -741,7 +751,9 @@ module core_top (
         mouse_enabled_s,
         use_square_pixels_s,
         blend_enabled_s,
-        core_region_s
+        core_region_s,
+        en_igr_s,
+        igr_btn_cmb_s
       },
       clk_sys_21_48
   );
@@ -767,12 +779,22 @@ module core_top (
     rtc_time[15:8],  // Minute
     rtc_time[7:0]  // Second
   };
+  
+  reg [15:0] igr_reset_delay = 0;
+  reg igr_reset = 1;
+  always @(posedge clk_sys_21_48) begin
+    igr_reset <= igr_reset_delay > 0;
+    if (igr_reset_delay > 0)
+      igr_reset_delay <= igr_reset_delay - 1;
+    if (en_igr_s && (cont1_key_s == igr_btn_cmb_s))
+      igr_reset_delay <= 16'hffff;
+  end
 
   MAIN_SNES snes (
       .clk_mem_85_9 (clk_mem_85_9),
       .clk_sys_21_48(clk_sys_21_48),
 
-      .core_reset(~pll_core_locked || reset_button_s),
+      .core_reset(~pll_core_locked || reset_button_s || igr_reset),
 
       .rtc(rtc),
 

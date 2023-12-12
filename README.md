@@ -61,6 +61,16 @@ Savestates/Memories/Sleep are not supported by any FPGA SNES core. Not this one,
 * `Pseudo Transparency` - Enable blending of adjacent pixels, used in some games to simulate transparency
 * `Core Region` - `Auto` selects region of ROM loaded, overrides the region if set to `NTSC` or `PAL`
 
+### Reset
+
+Reset of SNES core can be triggered using menu entry `Reset Core`. An `In-Game Reset` (IGR) feature is available. Options are as follows:
+
+* `Off` - Disable IGR
+* `Sel+Dw` - Trigger reset on Select + D-Pad down button combo.
+* `L+R+St+Sel` - Trigger reset on L + R + Start + Select button combo.
+
+
+
 ### Turbo
 
 * `CPU Turbo` - Applies a speed increase to the main SNES CPU. **NOTE:** This has different compatibility with different games. See the [MiSTer list of games](https://github.com/MiSTer-devel/SNES_MiSTer/blob/master/SNES_Turbo.md) that this feature works with
