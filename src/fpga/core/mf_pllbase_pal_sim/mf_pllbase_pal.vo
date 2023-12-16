@@ -1,11 +1,11 @@
 //IP Functional Simulation Model
-//VERSION_BEGIN 21.1 cbx_mgl 2022:06:23:22:04:21:SJ cbx_simgen 2022:06:23:22:03:45:SJ  VERSION_END
+//VERSION_BEGIN 22.1 cbx_mgl 2023:07:21:07:12:36:SC cbx_simgen 2023:07:21:07:12:21:SC  VERSION_END
 // synthesis VERILOG_INPUT_VERSION VERILOG_2001
 // altera message_off 10463
 
 
 
-// Copyright (C) 2022  Intel Corporation. All rights reserved.
+// Copyright (C) 2023  Intel Corporation. All rights reserved.
 // Your use of Intel Corporation's design tools, logic functions 
 // and other software and tools, and any partner logic 
 // functions, and any output files from any of the foregoing 
