@@ -1,4 +1,5 @@
 Port by agg23. Core by srg320.
+Modifications by borti4938.
 
 Super Nintendo Entertainment System (SNES), referred to as the Super Famicom (SFC) in Japan was the second home console produced by Nintendo. A 16-bit console that remains hugely popular to this day due to its expansive library and impressive enhancement chips.
 
